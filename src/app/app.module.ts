@@ -1,5 +1,4 @@
 import { HeaderModule } from './modules/header/header.module';
-import { HeaderComponent } from './modules/header/header/header.component';
 import { environment } from './../environments/environment';
 import { PostsModule } from './modules/posts/posts.module';
 import { BrowserModule } from '@angular/platform-browser';
