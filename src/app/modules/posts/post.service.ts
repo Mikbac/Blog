@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
 import {
     AngularFirestore,
+    DocumentChangeAction,
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Post } from './post-model';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PostService {
-    private collectionPost: string = 'Post';
-
-    private _posts: Observable<any[]> = this.firestore
-        .collection(this.collectionPost)
-        .snapshotChanges();
+    private COLLECTION_POST = 'Post';
 
     constructor(private firestore: AngularFirestore) {}
 
-    get posts$(): Observable<Post[]> {
-        return this._posts;
+    get posts$(): Observable<DocumentChangeAction<Post>[]> {
+        return this.firestore
+            .collection(this.COLLECTION_POST)
+            .snapshotChanges()
+            .pipe(catchError((error) => of(error)));
     }
 }

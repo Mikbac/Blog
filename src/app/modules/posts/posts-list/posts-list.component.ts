@@ -3,19 +3,21 @@ import { PostService } from '../post.service';
 import { Observable } from 'rxjs';
 import { Post } from '../post-model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DocumentChangeAction } from '@angular/fire/firestore';
 
 @Component({
     selector: 'app-posts-list',
     templateUrl: './posts-list.component.html',
 })
 export class PostsListComponent implements OnInit {
-    posts$: Observable<Post[]> = this.postService.posts$;
+    posts$: Observable<DocumentChangeAction<Post>[]> = this.postService.posts$;
 
     constructor(
-        private spinner: NgxSpinnerService,
-        private postService: PostService
+        private postService: PostService,
+        private spinner: NgxSpinnerService
     ) {}
 
     ngOnInit(): void {
+        this.spinner.show();
     }
 }

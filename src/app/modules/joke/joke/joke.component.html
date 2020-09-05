@@ -1,0 +1,5 @@
+<ng-container *ngIf="joke$ | async as joke">
+    <div class="joke">
+        <p>{{ joke.joke }}</p>
+    </div>
+</ng-container>

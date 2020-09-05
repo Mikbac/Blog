@@ -1,7 +1,10 @@
-<ng-container *ngIf="posts$ | async as posts$">
+<ng-container *ngIf="posts$ | async as posts; else loading">
     <ol>
-        <li *ngFor="let post of posts$">
+        <li *ngFor="let post of posts">
             <h4>{{ post.payload.doc.data().title }}</h4>
         </li>
     </ol>
 </ng-container>
+<ng-template #loading>
+
+</ng-template>

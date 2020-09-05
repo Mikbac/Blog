@@ -7,7 +7,11 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 
 @NgModule({
     declarations: [PostsListComponent],
-    imports: [CommonModule, PostsRoutingModule, NgxSpinnerModule],
+    imports: [
+        CommonModule,
+        PostsRoutingModule,
+        NgxSpinnerModule,
+    ],
     exports: [PostsListComponent],
 })
 export class PostsModule {}

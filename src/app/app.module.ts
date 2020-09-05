@@ -1,3 +1,6 @@
+import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
+import { LoaderService } from './services/loader.service';
+import { JokeModule } from './modules/joke/joke.module';
 import { HeaderModule } from './modules/header/header.module';
 import { environment } from './../environments/environment';
 import { PostsModule } from './modules/posts/posts.module';
@@ -11,9 +14,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AngularFireModule } from '@angular/fire'; // npm i --save firebase @angular/fire
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LoaderComponent } from './components/loader/loader.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent],
+    declarations: [AppComponent, HomePageComponent, LoaderComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -22,8 +27,17 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
         AngularFirestoreModule,
         HeaderModule,
         PostsModule,
+        JokeModule,
     ],
-    providers: [],
+    providers: [
+        LoaderService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
+            multi: true,
+        },
+    ],
+    exports: [],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
