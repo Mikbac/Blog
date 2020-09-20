@@ -1,3 +1,4 @@
+import { LazyLoadingDirective } from './directives/lazy-loading.directive';
 import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
 import { LoaderService } from './services/loader.service';
 import { JokeModule } from './modules/joke/joke.module';
@@ -18,7 +19,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, LoaderComponent],
+    declarations: [AppComponent, HomePageComponent, LoaderComponent, LazyLoadingDirective],
     imports: [
         BrowserModule,
         AppRoutingModule,

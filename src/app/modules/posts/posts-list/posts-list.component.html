@@ -1,8 +1,13 @@
 <ng-container *ngIf="posts$ | async as posts; else loading">
     <ol>
-        <li *ngFor="let post of posts">
+        <li *ngFor="let post of posts" class="post">
             <h4>{{ post.payload.doc.data().title }}</h4>
             <div [innerHTML]="post.payload.doc.data().description"></div>
+            <img
+                src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12225358/Pug-On-White-01.jpg"
+                alt="Pug"
+                loading="lazy"
+            />
         </li>
     </ol>
 </ng-container>
