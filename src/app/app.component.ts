@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Location } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -11,8 +12,11 @@ export class AppComponent implements OnInit {
     constructor(
         private title: Title,
         private meta: Meta,
-        private location: Location
-    ) {}
+        private location: Location,
+        private translate: TranslateService
+    ) {
+        translate.setDefaultLang('en');
+    }
 
     ngOnInit(): void {
         this.title.setTitle('Blog');

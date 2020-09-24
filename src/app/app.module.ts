@@ -13,19 +13,39 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-import { AngularFireModule } from '@angular/fire'; // npm i --save firebase @angular/fire
+// npm i --save firebase @angular/fire
+import { AngularFireModule } from '@angular/fire';
+
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { LoaderComponent } from './components/loader/loader.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+//npm install @ngx-translate/core @ngx-translate/http-loader rxjs --save
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, LoaderComponent, LazyLoadingDirective],
+    declarations: [
+        AppComponent,
+        HomePageComponent,
+        LoaderComponent,
+        LazyLoadingDirective,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgxSpinnerModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient],
+            },
+        }),
         HeaderModule,
         PostsModule,
         JokeModule,
@@ -42,3 +62,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}

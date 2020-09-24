@@ -1,7 +1,8 @@
-import { firebaseConfiguration } from './keys/firebase';
+import { mainConfiguration } from './configuration/configuration';
+import { firebaseConfiguration } from './firebase/firebase';
 
 export const environment = {
     production: false,
-    firebase: firebaseConfiguration
+    firebase: firebaseConfiguration,
+    configuration: mainConfiguration,
 };
-
