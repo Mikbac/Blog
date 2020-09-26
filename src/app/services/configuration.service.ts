@@ -23,4 +23,12 @@ export class ConfigurationService {
     get logoTag(): string {
         return this.configuration.logo.tag;
     }
+
+    get logoPath(): string {
+        return this.configuration.logo.path;
+    }
+
+    get jokeAPIAddress(): string {
+        return this.configuration.jokeAPIAddress;
+    }
 }

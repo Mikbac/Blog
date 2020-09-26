@@ -2,5 +2,9 @@
     "header": {},
     "joke": {
         "title": "Joke of the Day"
+    },
+    "language": {
+        "english": "English",
+        "polish": "Polish"
     }
 }

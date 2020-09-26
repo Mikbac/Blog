@@ -5,5 +5,7 @@ export const mainConfiguration: Configuration = {
     logo: {
         name: 'logo.png',
         tag: 'MikBac logo',
+        path: '/images/logo/logo.png',
     },
+    jokeAPIAddress: 'https://icanhazdadjoke.com/',
 };

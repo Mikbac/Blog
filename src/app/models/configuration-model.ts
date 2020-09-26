@@ -3,7 +3,9 @@ export interface Configuration {
     logo: {
         name: string;
         tag: string;
+        path: string;
     };
+    jokeAPIAddress: string;
 }
 
 export class ConfigurationNull implements Configuration {
@@ -11,5 +13,7 @@ export class ConfigurationNull implements Configuration {
     logo: {
         name: '';
         tag: '';
+        path: '';
     };
+    jokeAPIAddress: '';
 }

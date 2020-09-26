@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <img [src]="logoPath" [attr.tag]="logoTag" width="80" height="80" />
+            <img [src]="logoUrl" [attr.tag]="logoTag" width="80" height="80" />
             <button
                 class="navbar-toggler"
                 type="button"
@@ -14,11 +14,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ng-container *ngIf="categories$ | async as categories$">
+                <ng-container *ngIf="categories$ | async as categories">
                     <ul class="navbar-nav mr-auto">
                         <li
                             class="nav-item active ml-3"
-                            *ngFor="let category of categories$"
+                            *ngFor="let category of categories"
                         >
                             <a class="nav-link" href="#">
                                 {{ category.payload.doc.data().title }}

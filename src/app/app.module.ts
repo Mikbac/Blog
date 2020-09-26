@@ -1,3 +1,4 @@
+import { MenuModule } from './modules/menu/menu.module';
 import { LazyLoadingDirective } from './directives/lazy-loading.directive';
 import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
 import { LoaderService } from './services/loader.service';
@@ -28,6 +29,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+import { AngularFireStorageModule } from '@angular/fire/storage';
 @NgModule({
     declarations: [
         AppComponent,
@@ -42,6 +44,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
+        AngularFireStorageModule,
         HttpClientModule,
         TranslateModule.forRoot({
             loader: {
@@ -53,6 +56,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         HeaderModule,
         PostsModule,
         JokeModule,
+        MenuModule,
     ],
     providers: [
         LoaderService,

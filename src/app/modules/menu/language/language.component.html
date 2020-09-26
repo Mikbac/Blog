@@ -1,0 +1,22 @@
+<div class="knopf-group pill m-8">
+    <button
+        (click)="switchLanguage('en')"
+        [className]="
+            isLanguageActive('en')
+                ? 'knopf positive wide'
+                : 'knopf positive flat outlined'
+        "
+    >
+        {{ 'language.english' | translate }}
+    </button>
+    <button
+        (click)="switchLanguage('pl')"
+        [className]="
+            isLanguageActive('pl')
+                ? 'knopf positive wide'
+                : 'knopf positive flat outlined'
+        "
+    >
+        {{ 'language.polish' | translate }}
+    </button>
+</div>

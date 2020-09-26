@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Joke } from './joke-model';
 import { Observable } from 'rxjs';
+import { ConfigurationService } from 'src/app/services/configuration.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class JokeService {
-    private REST_API_ADDRESS = 'https://icanhazdadjoke.com/';
-
-    constructor(private http: HttpClient) {}
+    constructor(
+        private configurationService: ConfigurationService,
+        private http: HttpClient
+    ) {}
 
     public get joke$(): Observable<Joke> {
         const header = new HttpHeaders({
@@ -20,6 +22,9 @@ export class JokeService {
             headers: header,
         };
 
-        return this.http.get<Joke>(this.REST_API_ADDRESS, options);
+        return this.http.get<Joke>(
+            this.configurationService.jokeAPIAddress,
+            options
+        );
     }
 }

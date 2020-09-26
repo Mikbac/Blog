@@ -27,3 +27,13 @@ http://localhost:4200/
 * [Angular 10.1](https://angular.io/)
 * [Firestore](https://firebase.google.com/docs/firestore)
 * [LessCss](http://lesscss.org/)
+
+## TODO
+- [x] ngx-translate
+- [x] Travis CI configuration
+- [x] Loading spinner (Http Interceptor)
+- [x] Lazy loading for images
+- [x] Joke (from [icanhazdadjoke](https://icanhazdadjoke.com/))
+- [x] Firestore configuration
+- [x] Application configuration
+- [ ] Firebase storage
