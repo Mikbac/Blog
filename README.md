@@ -28,6 +28,21 @@ http://localhost:4200/
 * [Firestore](https://firebase.google.com/docs/firestore)
 * [LessCss](http://lesscss.org/)
 
+## Database model
+
+### Category
+* id: string
+* title: string
+
+### Post
+* id: string
+* title: string
+* category: list<string>
+* date: date
+* shortDescription: string
+* description: string
+
+
 ## TODO
 - [x] ngx-translate
 - [x] Travis CI configuration
