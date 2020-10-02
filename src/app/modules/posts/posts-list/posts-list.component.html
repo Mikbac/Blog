@@ -1,6 +1,6 @@
 <ng-container *ngIf="posts$ | async as posts; else loading">
-    <ol>
-        <li *ngFor="let post of posts" class="post">
+    <ol class = "list-group list-group-flush">
+        <li *ngFor="let post of posts" class="post list-group-item">
             <h4>{{ post.payload.doc.data().title }}</h4>
             <div [innerHTML]="post.payload.doc.data().description"></div>
             <img

@@ -1,11 +1,15 @@
 export interface Post {
+    id: string;
     title: string;
-    shortDescirption: string;
+    category: string[];
+    date: Date;
     description: string;
 }
 
 export class PostNull implements Post {
+    id = '';
     title = '';
-    shortDescirption = '';
+    category = [];
+    date = null;
     description = '';
 }

@@ -1,4 +1,5 @@
 export interface Configuration {
+    author: { name: string; gitHub: string; linkedIn: string };
     defaultLanguage: string;
     logo: {
         name: string;
@@ -9,6 +10,11 @@ export interface Configuration {
 }
 
 export class ConfigurationNull implements Configuration {
+    author: {
+        name: '';
+        gitHub: '';
+        linkedIn: '';
+    };
     defaultLanguage = '';
     logo: {
         name: '';

@@ -1,3 +1,4 @@
+import { FooterModule } from './modules/footer/footer.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { LazyLoadingDirective } from './directives/lazy-loading.directive';
 import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
@@ -54,6 +55,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
             },
         }),
         HeaderModule,
+        FooterModule,
         PostsModule,
         JokeModule,
         MenuModule,

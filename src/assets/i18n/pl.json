@@ -1,5 +1,10 @@
 {
     "header": {},
+    "footer": {
+        "copyright": "Copyright © {{ year }} by {{ authorName }} ",
+        "GitHub": "GitHub",
+        "LinkedIn": "LinkedIn"
+    },
     "joke": {
         "title": "Żart dnia"
     },

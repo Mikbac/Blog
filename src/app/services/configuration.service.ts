@@ -31,4 +31,16 @@ export class ConfigurationService {
     get jokeAPIAddress(): string {
         return this.configuration.jokeAPIAddress;
     }
+
+    get authorName(): string {
+        return this.configuration.author.name;
+    }
+
+    get authorGitHub(): string {
+        return this.configuration.author.gitHub;
+    }
+
+    get authorLinkedIn(): string {
+        return this.configuration.author.linkedIn;
+    }
 }

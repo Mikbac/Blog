@@ -1,0 +1,24 @@
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <span>{{
+                    'footer.copyright'
+                        | translate: { year: year, authorName: authorName }
+                }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <a href="{{ authorGitHub }}">{{
+                    'footer.GitHub' | translate
+                }}</a>
+            </div>
+            <div class="col-2">
+                <a href="{{ authorLinkedIn }}">
+                    {{ 'footer.LinkedIn' | translate }}</a
+                >
+            </div>
+        </div>
+    </div>
+</div>

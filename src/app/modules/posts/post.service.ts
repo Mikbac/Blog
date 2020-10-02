@@ -4,7 +4,7 @@ import {
     DocumentChangeAction,
 } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import { Post } from './post-model';
+import { Post } from './models/post-model';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({

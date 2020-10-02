@@ -1,5 +1,5 @@
 import { StorageService } from './../../../services/storage.service';
-import { Category } from './../category-model';
+import { Category } from '../models/category-model';
 import { CategoryService } from './../category.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
