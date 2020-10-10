@@ -1,8 +1,10 @@
+import { Timestamp } from '@google-cloud/firestore';
+
 export interface Post {
     id: string;
     title: string;
     category: string[];
-    date: Date;
+    date: Timestamp;
     description: string;
 }
 

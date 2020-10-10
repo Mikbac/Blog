@@ -1,5 +1,5 @@
 <ng-container *ngIf="posts$ | async as posts; else loading">
-    <ol class = "list-group list-group-flush">
+    <ol class="list-group list-group-flush">
         <li *ngFor="let post of posts" class="post list-group-item">
             <h4>{{ post.payload.doc.data().title }}</h4>
             <div [innerHTML]="post.payload.doc.data().description"></div>
@@ -8,7 +8,23 @@
                 alt="Pug"
                 loading="lazy"
             />
+            <div>
+                {{ post.payload.doc.id }}
+                {{ post.payload.doc.data().date.toDate() | date: 'yyyy-MM-dd' }}
+            </div>
         </li>
     </ol>
+    <div class="row mb-3">
+        <div class="col-6">
+            <button class="knopf block wide pill" (click)="setPreviousPage()">
+                {{ 'posts.list.previous' | translate }}
+            </button>
+        </div>
+        <div class="col-6">
+            <button class="knopf block wide pill" (click)="setNextPage()">
+                {{ 'posts.list.next' | translate }}
+            </button>
+        </div>
+    </div>
 </ng-container>
 <ng-template #loading> </ng-template>

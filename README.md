@@ -38,7 +38,7 @@ http://localhost:4200/
 * id: string
 * title: string
 * category: list<string>
-* date: date
+* date: Timestamp
 * description: string (optional)
 
 
@@ -51,4 +51,4 @@ http://localhost:4200/
 - [x] Firestore configuration
 - [x] Application configuration
 - [ ] Firebase storage
-- [ ] Angular paginator
+- [x] Angular paginator

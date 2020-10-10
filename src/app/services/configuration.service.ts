@@ -43,4 +43,8 @@ export class ConfigurationService {
     get authorLinkedIn(): string {
         return this.configuration.author.linkedIn;
     }
+
+    get paginationPageSize(): number {
+        return this.configuration.pagination.pageSize;
+    }
 }

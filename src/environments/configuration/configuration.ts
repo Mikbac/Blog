@@ -12,5 +12,8 @@ export const mainConfiguration: Configuration = {
         tag: 'MikBac logo',
         path: '/images/logo/logo.png',
     },
+    pagination: {
+        pageSize: 5,
+    },
     jokeAPIAddress: 'https://icanhazdadjoke.com/',
 };

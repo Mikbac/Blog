@@ -8,10 +8,7 @@ import { ConfigurationService } from 'src/app/services/configuration.service';
     providedIn: 'root',
 })
 export class JokeService {
-    constructor(
-        private configurationService: ConfigurationService,
-        private http: HttpClient
-    ) {}
+    constructor(private configurationService: ConfigurationService, private http: HttpClient) {}
 
     public get joke$(): Observable<Joke> {
         const header = new HttpHeaders({
@@ -22,9 +19,6 @@ export class JokeService {
             headers: header,
         };
 
-        return this.http.get<Joke>(
-            this.configurationService.jokeAPIAddress,
-            options
-        );
+        return this.http.get<Joke>(this.configurationService.jokeAPIAddress, options);
     }
 }

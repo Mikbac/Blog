@@ -11,5 +11,11 @@
     "language": {
         "english": "English",
         "polish": "Polish"
+    },
+    "posts": {
+      "list":{
+        "previous": "Previous page",
+        "next": "Next page"
+      }
     }
 }

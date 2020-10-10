@@ -12,8 +12,7 @@ import { ConfigurationService } from 'src/app/services/configuration.service';
 })
 export class HeaderComponent implements OnInit {
     logoUrl: string;
-    categories$: Observable<DocumentChangeAction<Category>[]> = this
-        .categoryService.categories$;
+    categories$: Observable<DocumentChangeAction<Category>[]> = this.categoryService.categories$;
 
     constructor(
         private configurationService: ConfigurationService,

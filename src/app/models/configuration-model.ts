@@ -6,6 +6,9 @@ export interface Configuration {
         tag: string;
         path: string;
     };
+    pagination: {
+        pageSize: number;
+    };
     jokeAPIAddress: string;
 }
 
@@ -20,6 +23,9 @@ export class ConfigurationNull implements Configuration {
         name: '';
         tag: '';
         path: '';
+    };
+    pagination: {
+        pageSize: 0;
     };
     jokeAPIAddress: '';
 }
