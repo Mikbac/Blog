@@ -16,12 +16,20 @@
     </ol>
     <div class="row mb-3">
         <div class="col-6">
-            <button class="knopf block wide pill" (click)="setPreviousPage()">
+            <button
+                class="knopf block wide pill"
+                (click)="setPreviousPage()"
+                [attr.disabled]="isPreviousPageActive ? null : ''"
+            >
                 {{ 'posts.list.previous' | translate }}
             </button>
         </div>
         <div class="col-6">
-            <button class="knopf block wide pill" (click)="setNextPage()">
+            <button
+                class="knopf block wide pill"
+                (click)="setNextPage()"
+                [attr.disabled]="isNextPageActive ? null : ''"
+            >
                 {{ 'posts.list.next' | translate }}
             </button>
         </div>

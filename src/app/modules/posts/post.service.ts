@@ -20,6 +20,15 @@ export class PostService {
             .pipe(catchError((error) => of(error)));
     }
 
+    public getOldestPosts(pageSize: number): Observable<DocumentChangeAction<Post>[]> {
+        return this.firestore
+            .collection(this.COLLECTION_POST, (ref) =>
+                ref.orderBy('date', 'desc').limitToLast(pageSize + 1)
+            )
+            .snapshotChanges()
+            .pipe(catchError((error) => of(error)));
+    }
+
     public getLatestPosts$(pageSize: number): Observable<DocumentChangeAction<Post>[]> {
         return this.firestore
             .collection(this.COLLECTION_POST, (ref) => ref.orderBy('date', 'desc').limit(pageSize))
@@ -28,24 +37,24 @@ export class PostService {
     }
 
     public getNextPostsPage$(
-        lastPost: Timestamp,
+        olderPost: Timestamp,
         pageSize: number
     ): Observable<DocumentChangeAction<Post>[]> {
         return this.firestore
             .collection(this.COLLECTION_POST, (ref) =>
-                ref.orderBy('date', 'desc').startAfter(lastPost).limit(pageSize)
+                ref.orderBy('date', 'desc').startAfter(olderPost).limit(pageSize)
             )
             .snapshotChanges()
             .pipe(catchError((error) => of(error)));
     }
 
     public getPreviousPostsPage$(
-        olderPost: Timestamp,
+        lastPost: Timestamp,
         pageSize: number
     ): Observable<DocumentChangeAction<Post>[]> {
         return this.firestore
             .collection(this.COLLECTION_POST, (ref) =>
-                ref.orderBy('date', 'desc').endBefore(olderPost).limit(pageSize)
+                ref.orderBy('date', 'desc').endBefore(lastPost).limitToLast(pageSize)
             )
             .snapshotChanges()
             .pipe(catchError((error) => of(error)));

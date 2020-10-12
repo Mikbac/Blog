@@ -38,7 +38,7 @@ http://localhost:4200/
 * id: string
 * title: string
 * category: list<string>
-* date: Timestamp
+* date: Timestamp (note: two or more posts cannot have the same time!)
 * description: string (optional)
 
 
@@ -51,4 +51,4 @@ http://localhost:4200/
 - [x] Firestore configuration
 - [x] Application configuration
 - [ ] Firebase storage
-- [x] Angular paginator
+- [x] Paginator

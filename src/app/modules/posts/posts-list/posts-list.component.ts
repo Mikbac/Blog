@@ -16,6 +16,10 @@ export class PostsListComponent implements OnInit {
         this.configurationService.paginationPageSize
     );
 
+    private pageNumber = 0;
+    private oldestPostId: string;
+    private isNextPage = true;
+
     constructor(
         private postService: PostService,
         private configurationService: ConfigurationService,
@@ -24,13 +28,38 @@ export class PostsListComponent implements OnInit {
 
     ngOnInit(): void {
         this.spinner.show();
+        this.setOldestPostFromPenultimatePage();
     }
 
-    setNextPage() {
+    public get isNextPageActive(): boolean {
+        return this.isNextPage;
+    }
+
+    public get isPreviousPageActive(): boolean {
+        return this.pageNumber !== 0;
+    }
+
+    public checkLastPost(postId: string): void {
+        if (postId === this.oldestPostId) {
+            this.isNextPage = false;
+        }
+    }
+
+    private setOldestPostFromPenultimatePage(): void {
+        this.postService
+            .getOldestPosts(this.configurationService.paginationPageSize)
+            .pipe(map((post) => this.getPostMapping(post)))
+            .subscribe((posts) => {
+                this.oldestPostId = posts[0].id;
+            });
+    }
+
+    public setNextPage(): void {
         let oldestPost: Post = null;
         this.posts$.pipe(map((post) => this.getPostMapping(post))).subscribe((posts) => {
             oldestPost = posts[0];
             posts.forEach((post) => {
+                this.checkLastPost(post.id);
                 if (post.date.seconds < oldestPost.date.seconds) {
                     oldestPost = post;
                 }
@@ -40,22 +69,25 @@ export class PostsListComponent implements OnInit {
                 this.configurationService.paginationPageSize
             );
         });
+        this.pageNumber += 1;
     }
 
-    setPreviousPage() {
-        let oldestPost: Post = null;
+    public setPreviousPage(): void {
+        this.isNextPage = true;
+        let latestPost: Post = null;
         this.posts$.pipe(map((post) => this.getPostMapping(post))).subscribe((posts) => {
-            oldestPost = posts[0];
+            latestPost = posts[posts.length - 1];
             posts.forEach((post) => {
-                if (post.date.seconds > oldestPost.date.seconds) {
-                    oldestPost = post;
+                if (post.date.seconds > latestPost.date.seconds) {
+                    latestPost = post;
                 }
             });
             this.posts$ = this.postService.getPreviousPostsPage$(
-                oldestPost.date,
+                latestPost.date,
                 this.configurationService.paginationPageSize
             );
         });
+        this.pageNumber -= 1;
     }
 
     getPostMapping(post) {
