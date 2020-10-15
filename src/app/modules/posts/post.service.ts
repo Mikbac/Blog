@@ -2,7 +2,7 @@ import { Timestamp } from '@google-cloud/firestore';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import { Post } from './models/post-model';
+import { Post } from './post-model';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({

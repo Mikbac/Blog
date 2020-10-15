@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class StorageService {
     constructor(private afStorage: AngularFireStorage) {}
 
-    getImageUrl(path: string): Observable<string> {
+    public getImageUrl(path: string): Observable<string> {
         return this.afStorage.ref(path).getDownloadURL();
     }
 }

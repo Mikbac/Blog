@@ -1,31 +1,21 @@
 export interface Configuration {
-    author: { name: string; gitHub: string; linkedIn: string };
-    defaultLanguage: string;
-    logo: {
-        name: string;
-        tag: string;
-        path: string;
-    };
-    pagination: {
+    readonly author: Author;
+    readonly defaultLanguage: string;
+    readonly logo: Logo;
+    readonly pagination: {
         pageSize: number;
     };
-    jokeAPIAddress: string;
+    readonly jokeAPIAddress: string;
 }
 
-export class ConfigurationNull implements Configuration {
-    author: {
-        name: '';
-        gitHub: '';
-        linkedIn: '';
-    };
-    defaultLanguage = '';
-    logo: {
-        name: '';
-        tag: '';
-        path: '';
-    };
-    pagination: {
-        pageSize: 0;
-    };
-    jokeAPIAddress: '';
+export interface Author {
+    readonly name: string;
+    readonly gitHub: string;
+    readonly linkedIn: string;
+}
+
+export interface Logo {
+    readonly name: string;
+    readonly tag: string;
+    readonly path: string;
 }

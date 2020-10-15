@@ -1,4 +1,4 @@
-import { Category } from './models/category-model';
+import { Category } from './category-model';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';

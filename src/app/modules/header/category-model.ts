@@ -1,6 +1,6 @@
 export interface Category {
-    id: string;
-    title: string;
+    readonly id: string;
+    readonly title: string;
 }
 
 export class CategoryNull implements Category {

@@ -1,5 +1,5 @@
 import { StorageService } from './../../../services/storage.service';
-import { Category } from '../models/category-model';
+import { Category } from '../category-model';
 import { CategoryService } from './../category.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -11,8 +11,8 @@ import { ConfigurationService } from 'src/app/services/configuration.service';
     templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-    logoUrl: string;
-    categories$: Observable<DocumentChangeAction<Category>[]> = this.categoryService.categories$;
+    public logoUrl: string;
+    public readonly categories$: Observable<DocumentChangeAction<Category>[]> = this.categoryService.categories$;
 
     constructor(
         private configurationService: ConfigurationService,

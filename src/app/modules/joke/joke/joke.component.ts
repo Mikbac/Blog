@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './joke.component.html',
 })
 export class JokeComponent implements OnInit {
-    public joke$ = this.jokeService.joke$;
+    public readonly joke$ = this.jokeService.joke$;
 
     constructor(private jokeService: JokeService) {}
 

@@ -2,7 +2,7 @@ import { ConfigurationService } from './../../../services/configuration.service'
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { Observable } from 'rxjs';
-import { Post } from '../models/post-model';
+import { Post } from '../post-model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DocumentChangeAction } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
     templateUrl: './posts-list.component.html',
 })
 export class PostsListComponent implements OnInit {
-    posts$: Observable<DocumentChangeAction<Post>[]> = this.postService.getLatestPosts$(
+    public posts$: Observable<DocumentChangeAction<Post>[]> = this.postService.getLatestPosts$(
         this.configurationService.paginationPageSize
     );
 
@@ -90,7 +90,7 @@ export class PostsListComponent implements OnInit {
         this.pageNumber -= 1;
     }
 
-    getPostMapping(post) {
+    private getPostMapping(post) {
         return post.map((o) => {
             const data = o.payload.doc.data() as Post;
             const id = o.payload.doc.id;

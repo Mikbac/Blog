@@ -1,6 +1,6 @@
 export class Joke {
-    id: string;
-    joke: string;
+    readonly id: string;
+    readonly joke: string;
 }
 
 export class JokeyNull implements Joke {

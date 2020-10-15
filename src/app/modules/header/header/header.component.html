@@ -6,8 +6,8 @@
                 class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
+                data-target="#navbarText"
+                aria-controls="navbarText"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
             >
@@ -16,10 +16,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ng-container *ngIf="categories$ | async as categories">
                     <ul class="navbar-nav mr-auto">
-                        <li
-                            class="nav-item active ml-3"
-                            *ngFor="let category of categories"
-                        >
+                        <li class="nav-item active ml-3" *ngFor="let category of categories">
                             <a class="nav-link" href="#">
                                 {{ category.payload.doc.data().title }}
                             </a>

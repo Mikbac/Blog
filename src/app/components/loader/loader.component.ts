@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './loader.component.html',
 })
 export class LoaderComponent implements OnInit {
-    loading: boolean;
+    public loading: boolean;
 
     constructor(private loaderService: LoaderService) {
         this.loaderService.isLoading.subscribe((v) => {
