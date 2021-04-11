@@ -10,9 +10,7 @@ describe('LazyLoadingDirective', () => {
     });
 
     it('should create an instance', () => {
-        // let nativeElement = new HTMLImageElement();
-        let element = new ElementRef<HTMLImageElement>(null);
-        // element.setAttribute('', '')
+        const element = new ElementRef<HTMLImageElement>(null);
         const directive = new LazyLoadingDirective(element);
         expect(directive).toBeTruthy();
     });
