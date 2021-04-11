@@ -5,6 +5,7 @@ import { ConfigurationService } from 'src/app/services/configuration.service';
 @Component({
     selector: 'app-language',
     templateUrl: './language.component.html',
+    styleUrls: ['./language.scss']
 })
 export class LanguageComponent implements OnInit {
     constructor(

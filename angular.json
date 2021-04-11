@@ -7,7 +7,7 @@
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
-                    "style": "less"
+                    "style": "scss"
                 }
             },
             "root": "",
@@ -25,9 +25,16 @@
                         "aot": true,
                         "assets": ["src/robots.txt", "src/assets"],
                         "styles": [
-                            "src/styles.less",
+                            "src/styles.scss",
                             "./node_modules/bootstrap/dist/css/bootstrap.css"
                         ],
+                        "stylePreprocessorOptions": {
+                          "includePaths": [
+                            "src/",
+                            "src/assets",
+                            "src/assets/theme"
+                          ]
+                      },
                         "scripts": [
                             "./node_modules/jquery/dist/jquery.js",
                             "./node_modules/bootstrap/dist/js/bootstrap.js"
@@ -88,7 +95,14 @@
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.less"],
+                        "styles": ["src/styles.scss"],
+                        "stylePreprocessorOptions": {
+                          "includePaths": [
+                            "src/",
+                            "src/assets",
+                            "src/assets/theme"
+                          ]
+                      },
                         "scripts": []
                     }
                 },

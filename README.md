@@ -26,7 +26,7 @@ http://localhost:4200/
 * [TypeScript 4.0](https://www.typescriptlang.org/)
 * [Angular 10.1](https://angular.io/)
 * [Firestore](https://firebase.google.com/docs/firestore)
-* [LessCss](http://lesscss.org/)
+* [SCSS](https://sass-lang.com/guide)
 
 ## Database model
 
@@ -52,3 +52,5 @@ http://localhost:4200/
 - [x] Application configuration
 - [ ] Firebase storage
 - [x] Paginator
+- [ ] Firebase function for newsletter
+- [ ] Unit tests - Karma + Jasmine

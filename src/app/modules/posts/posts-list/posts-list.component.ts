@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 @Component({
     selector: 'app-posts-list',
     templateUrl: './posts-list.component.html',
+    styleUrls: ['./posts-list.scss']
 })
 export class PostsListComponent implements OnInit {
     public posts$: Observable<DocumentChangeAction<Post>[]> = this.postService.getLatestPosts$(

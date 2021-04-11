@@ -9,6 +9,7 @@ import { ConfigurationService } from 'src/app/services/configuration.service';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
+    styleUrls: ['./header.scss']
 })
 export class HeaderComponent implements OnInit {
     public logoUrl: string;
