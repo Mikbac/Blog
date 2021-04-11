@@ -1,0 +1,9 @@
+@import "_variables.scss";
+
+.header {
+    background-color: $ash-gray;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
