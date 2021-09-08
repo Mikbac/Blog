@@ -12,10 +12,18 @@ Frontend application for showing blog with using firestore as database.
 * Set web app's Firebase configuration
 
 ## Installing
+1. Build and run the application:`
 ```
 npm install && npm run
 ```
-Open the browser and hit
+or
+
+```
+docker build --tag mikbac/blog:1.0 -f Dockerfile .
+docker container run -p 4200:80 --name blog mikbac/blog:1.0
+```
+
+2. Open the browser and hit
 ```
 http://localhost:4200/
 ```

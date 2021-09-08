@@ -1,0 +1,9 @@
+/node_modules
+/e2e
+/.idea
+/.vscode
+/.github
+
+.gitignore
+.editorconfig
+*.md
